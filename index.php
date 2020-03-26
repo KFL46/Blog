@@ -2,4 +2,5 @@
 
     //	Inclusion du HTML   
     
-	include 'index.phtml';
+    include 'index.phtml';
+    ?>
