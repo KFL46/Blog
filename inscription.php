@@ -3,7 +3,7 @@
 	//	Traitement du formulaire d'inscription s'il a été soumis
 	if(!empty($_POST))
 	{
-		//	Connexion à la base de données
+	//	Connexion à la base de données
 		$dbh = new PDO
 		(
 			'mysql:host=localhost;dbname=formulaire;charset=utf8',
@@ -16,11 +16,14 @@
 		);
 
 		//	Ajout de l'utilisateur
-		$query = 'INSERT INTO redacteurs (id, passwordHash) VALUES (:nom :passwordHash)';
+		$query = 'INSERT INTO redacteurs (nom, passwordHash) VALUES (?, ?)';
 		$sth = $dbh->prepare($query);
-		$sth->bindValue(':passwordHash', password_hash(trim($_POST['password']), PASSWORD_BCRYPT), PDO::PARAM_STR);
+		$sth->bindValue(1, PDO::PARAM_STR);
+		$sth->bindValue(2, password_hash('passwordHash', PASSWORD_BCRYPT), PDO::PARAM_STR);
 		$sth->execute();
+	
 	}
+	
 
 	//	Redirection vers la page d'accueil
 	header('Location:./').
