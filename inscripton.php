@@ -16,7 +16,7 @@
 		);
 
 		//	Ajout de l'utilisateur
-		$query = 'INSERT INTO redacteurs (id, passwordHash) VALUES (:nomb :passwordHash)';
+		$query = 'INSERT INTO redacteurs (id, passwordHash) VALUES (:nom :passwordHash)';
 		$sth = $dbh->prepare($query);
 		$sth->bindValue(':passwordHash', password_hash(trim($_POST['password']), PASSWORD_BCRYPT), PDO::PARAM_STR);
 		$sth->execute();

@@ -1,5 +1,5 @@
 <?php
 
-    //	Inclusion du HTML 
+    //	Inclusion du HTML   
     
 	include 'index.phtml';
