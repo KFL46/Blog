@@ -17,12 +17,14 @@
 
 		//	Connexion de l'utilisateur
 		$query = 'SELECT id, passwordhash FROM redacteurs WHERE nom = ?';
+		//  Test affichage du mot de pass
 		var_dump($query);
 		
 		$sth = $dbh->prepare($query);
 		$sth->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
 		$sth->execute();
 		$user = $sth->fetch();
+		// Test affichage du pseudo
 		var_dump($_POST);
 		exit;
 
@@ -34,7 +36,7 @@
 			$_SESSION['formulaire'] = intval($user['id']);
 
 			//	Redirection vers la page privée
-			header('Location: ./profil.php');
+			header('Location:./profil.php');
 
 		}
 		//	Sinon…
