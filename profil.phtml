@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" media="all"/>
     <title>Accueil</title>
 </head>
 <body>
-    <p>page d'accueil</p>
+    <div class="topnav">
+        <a class="active" href="#home">Accueil</a>
+        <a href="#modifier">Modifier</a>
+        <a href="#supprimer">Supprimer</a>
+    </div>
+<br>
+<br>
+<form action="/profil.php">
+  <textarea name="articles" rows="10" cols="30">Rédigez votre article.</textarea>
+  <br><br>
+  <input type="submit">
+</form>
 </body>
 </html>
