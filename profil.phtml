@@ -8,15 +8,17 @@
 </head>
 <body>
     <div class="topnav">
-        <a class="active" href="#home">Accueil</a>
+        <a class="active" href="#home">Formulaire</a>
         <a href="#modifier">Modifier</a>
         <a href="#supprimer">Supprimer</a>
     </div>
-<br>
-<br>
-<form action="/profil.php">
-  <textarea name="articles" rows="10" cols="30">Rédigez votre article.</textarea>
-  <br><br>
+<form method="post" action="insertion.php" >
+    <fieldset>
+        <legend>Rédacteur</legend>
+        <input type="text" name="titre" placeholder="Titre">
+        <input type="text" id="idredacteur" placeholder="Pseudo">
+    </fieldset>
+  <textarea name="corps" rows="10" cols="30">Rédigez votre article.</textarea>
   <input type="submit">
 </form>
 </body>

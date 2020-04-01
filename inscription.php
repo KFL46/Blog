@@ -19,11 +19,8 @@
 		$query = 'INSERT INTO redacteurs (nom, passwordhash) VALUES (?, ?)';
 		$sth = $dbh->prepare($query);
 		$sth->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
-		$sth->bindValue(2, password_hash($_POST['passwordhash'], PASSWORD_BCRYPT), PDO::PARAM_STR);
+		$sth->bindValue(2, password_hash(trim($_POST['passwordhash']), PASSWORD_BCRYPT), PDO::PARAM_STR);
 		$sth->execute();
-			//	Redirection vers la page authentification
-			header('Location: ./authentification.php');
-
 	}
 	
 
