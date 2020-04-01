@@ -14,19 +14,16 @@ if(!empty($_POST))
         ]
     );
     var_dump($_POST);
+    session_start();
 
     //	Ajout de l'utilisateur
-    $query = 'INSERT INTO articles (titre, corps, idredacteur) VALUES (?, ?, id)';
+    $query = 'INSERT INTO articles (titre, corps, idredacteur) VALUES (?, ?, ?)';
     $sth = $dbh->prepare($query);
     $sth->bindValue(1, trim($_POST['titre']), PDO::PARAM_STR);
     $sth->bindValue(2, trim($_POST['corps']), PDO::PARAM_STR);
-    session_start();
-    $_SESSION['formulaire'] = intval($user['id']);
-
+    $sth->bindValue(3, trim($_SESSION['formulaire']));
     var_dump($_SESSION);
     $sth->execute();
 
     var_dump($sth);
-
-
 }
